@@ -101,5 +101,10 @@ namespace Fiorello_Lab.Controllers
         {
             return Content(User.Identity.Name);
         }
+        public async Task<IActionResult> Logout()
+        {
+           await _signInManager.SignOutAsync();
+            return RedirectToAction("index", "home");
+        }
     }
 }

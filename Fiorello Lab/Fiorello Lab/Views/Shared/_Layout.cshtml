@@ -153,6 +153,7 @@
                                  <li class="nav-item my-auto">
                                    @if(User.Identity.IsAuthenticated){
                                        <a class="px-1" asp-action="IsloggedIn" asp-controller="Account" > @User.Identity.Name</a>
+                                       <a class="px-1" asp-action="Logout" asp-controller="Account" >Logout</a>
                                    }
                                    else
                                    {
