@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+
+@model Flower
+<div class="container" >
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+	<div class="form-group">
+		<label asp-for="Name">Name</label>
+		<input  class="form-control"  asp-for="Name" placeholder="">
+		<span class="text-danger" asp-validation-for="Name"></span>
+	</div>
+		<div class="form-group">
+			<label asp-for="CategorieId">Category</label>
+			<select class="form-control" asp-for="CategorieId" asp-items=@(new SelectList(ViewBag.Categories, nameof(Categorie.Id),nameof(Categorie.Name) ))>
+		
+			</select>
+		</div>
+	<div class="form-group">
+		<label asp-for="Price"></label>
+		<input  class="form-control" type="number" step="0.001"  asp-for="Price" placeholder="">
+		<span class="text-danger" asp-validation-for="Price"></span>
+	</div>
+		<div class="form-group">
+			<label asp-for="MainImgFile">Flower Image</label>
+			<input class="form-control" asp-for="MainImgFile" placeholder="">
+			<span class="text-danger" asp-validation-for="MainImgFile"></span>
+		</div>
+		<div class="row col-12">
+			<div class="col-2">
+				<img src="~/Uploads/Flowers/@Model.FlowerImages.FirstOrDefault(x=> x.IsMain == true)?.ImgUrl" width="100%" />
+			</div>
+		</div>
+		<div class="form-group">
+			<label asp-for="FlowerImgFiles">FlowerImgFiles</label>
+			<input class="form-control" asp-for="FlowerImgFiles" placeholder="">
+			<span class="text-danger" asp-validation-for="FlowerImgFiles"></span>
+			<div class="row col-12 gap-2 mt-5">
+				@foreach (var flowerImg in Model.FlowerImages.Where(x => x.IsMain == false))
+				{
+					<div class="col-2 position-relative border p-2 myBox mx-2">
+						<input class="form-control" type="hidden" value="@flowerImg.Id" asp-for="FlowerImageIds" placeholder="">
+						<img src="~/Uploads/Flowers/@flowerImg?.ImgUrl" width="100%" />
+						<i class="x-btn position-absolute fs-3" style="font-size:20px; top: -20px; right: -10px;color: red;cursor: pointer;">x</i>
+					</div>
+				}
+				
+			</div>
+		</div>
+
+	
+	
+	
+
+
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+

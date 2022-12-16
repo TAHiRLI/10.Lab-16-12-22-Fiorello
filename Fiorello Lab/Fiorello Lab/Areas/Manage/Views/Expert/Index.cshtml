@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+}
+
+
+@model List<Expert>
+
+<h1>Index</h1>
+<div class="col-md-12">
+    <a asp-action="create" asp-controller="Expert"><i class="fas fa-pen"></i></a>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Order</th>
+            <th scope="col">Fullname</th>
+            <th scope="col">Position</th>
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var expert in Model)
+        {
+            order++;
+            <tr>
+                <th scope="row">@order</th> 
+                <td>@expert.FullName</td>
+                <td>@expert.Position</td>
+                <td>
+                    <img src="~/Uploads/Experts/@expert.Img" width="80"/>
+                </td>
+                <td><a class="badge " asp-action="delete" asp-controller="expert" asp-route-id="@expert.Id"><i class="fs-4 fas fa-trash"></i></a></td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+
+
+
+

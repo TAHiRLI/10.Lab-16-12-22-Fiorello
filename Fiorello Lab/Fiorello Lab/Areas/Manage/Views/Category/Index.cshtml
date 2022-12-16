@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+}
+
+
+@model List<Categorie>
+
+<h1>Index</h1>
+<div class="col-md-12">
+    <a asp-action="create" asp-controller="category"><i class="fas fa-pen"></i></a>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Order</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cat in Model)
+        {
+            order++;
+            <tr>
+            <th scope="row">@order</th>
+                <td>@cat.Name</td>
+                <td><a class="badge" asp-action="delete" asp-controller="Category" asp-route-id="@cat.Id"><i class="fas fa-trash"></i></a></td>
+        </tr>
+        }
+        
+    
+    </tbody>
+</table>
+
+
+

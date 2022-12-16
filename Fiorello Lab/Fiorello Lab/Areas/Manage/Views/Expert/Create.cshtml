@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+@model Expert
+<div class="container" >
+
+<form asp-action="create" method="post" enctype="multipart/form-data">
+	<div class="form-group">
+		<label asp-for="FullName">FullName</label>
+		<input  class="form-control"  asp-for="FullName" placeholder="">
+		<span class="text-danger" asp-validation-for="FullName"></span>
+	</div>
+		<div class="form-group">
+			<label asp-for="Position">Position</label>
+			<input class="form-control" asp-for="Position" placeholder="">
+			<span class="text-danger" asp-validation-for="Position"></span>
+		</div>
+		<div class="form-group">
+			<label asp-for="ExpertFile">Expert Image</label>
+			<input class="form-control" asp-for="ExpertFile" >
+			<span class="text-danger" asp-validation-for="ExpertFile"></span>
+		</div>
+	
+
+
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+</div>
+

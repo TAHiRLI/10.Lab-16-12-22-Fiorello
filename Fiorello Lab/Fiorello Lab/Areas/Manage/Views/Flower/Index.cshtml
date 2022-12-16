@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    int order = 0;
+}
+
+
+@model List<Flower>
+
+<h1>Index</h1>
+<div class="col-md-12">
+    <a asp-action="create" asp-controller="Flower"><i class="fas fa-pen"></i></a>
+</div>
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Order</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Price</th>
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var flower in Model)
+        {
+            order++;
+            <tr>
+                <th scope="row">@order</th>
+                <td>@flower.Name</td>
+                <td>@flower.Categorie.Name</td>
+                <td>@flower.Price</td>
+                <td>
+                    <img src="~/Uploads/Flowers/@flower.FlowerImages.FirstOrDefault(x=> x.FlowerId == flower.Id && x.IsMain == true)?.ImgUrl" width="80"/>
+                </td>
+                <td>
+                    <a class="badge " asp-action="edit" asp-controller="Flower" asp-route-id="@flower.Id"><i class="fs-4 fas fa-pen"></i></a>
+                    <a class="badge " asp-action="delete" asp-controller="Flower" asp-route-id="@flower.Id"><i class="fs-4 fas fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+
