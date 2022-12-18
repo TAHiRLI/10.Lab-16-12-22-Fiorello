@@ -1,0 +1,19 @@
+﻿
+
+@model BasketViewModel
+@{
+    Model.TotalPrice = Model.BasketItems.Sum(x => x.Flower.Price*x.Count);
+}
+
+
+    <i class="fas fa-shopping-bag"></i>
+    <sup class="rounded-circle">0</sup>
+    <span>CART ($@Model.TotalPrice)</span>
+    <ul class="list-unstyled py-3">
+
+           @foreach (var item in Model.BasketItems)
+        {
+             <li> @item.Count x   @item.Flower.Name  @item.Flower.Price$ </li>
+        }
+
+    </ul>

@@ -2,6 +2,7 @@
 using Fiorello_Lab.Models;
 using Fiorello_Lab.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace Fiorello_Lab.Controllers
@@ -20,7 +21,7 @@ namespace Fiorello_Lab.Controllers
             HomeVM vm = new HomeVM
             {
                 Categories=_context.Categories.ToList(),
-                Flowers=_context.Flowers.ToList(),
+                Flowers=_context.Flowers.Include(x=>x.FlowerImages).ToList(),
                 Settings = _context.Settings.ToDictionary(x=>x.Key, x=> x.Value)
                 
             };

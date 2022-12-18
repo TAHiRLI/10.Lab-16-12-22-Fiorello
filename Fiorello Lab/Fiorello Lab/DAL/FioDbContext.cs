@@ -16,5 +16,6 @@ namespace Fiorello_Lab.DAL
         public DbSet<Expert> Experts { get; set; }
         public DbSet<FlowerImage> FlowerImages { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
+        public  DbSet<BasketItem> BasketItems { get; set; }
     }
 }

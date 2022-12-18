@@ -142,14 +142,17 @@
 
                                     </ul>
                                 </li>
-                                <li class="nav-item my-auto shop-cart">
+                               <li class="nav-item my-auto shop-cart" id="BasketHolder">@* 
                                     <i class="fas fa-shopping-bag"></i>
                                     <sup class="rounded-circle">0</sup>
                                     <span>CART ($0)</span>
                                     <ul class="list-unstyled py-3">
-                                        <li class="">No products in the cart.</li>
-                                    </ul>
+                                        <li> 1x  majesty palm 25.4$ </li>
+
+                                    </ul>*@
                                 </li>
+
+
                                  <li class="nav-item my-auto">
                                    @if(User.Identity.IsAuthenticated){
                                        <a class="px-1" asp-action="IsloggedIn" asp-controller="Account" > @User.Identity.Name</a>
@@ -361,7 +364,7 @@
                     <a class="text-black-50 mr-5"
                         href=>LINKEDIN</a
                         class="text-black-50">
-                    <a class="text-black-50" href=>FACEBOOK</a>
+                    <a class="text-black-50" href="">FACEBOOK</a>
                 </div>
             </div>
         </div>
@@ -382,6 +385,7 @@
     <script src="https://kit.fontawesome.com/e5e249fce2.js" crossorigin="anonymous"></script>
     <script src="~/assets/owlcarousel/owl.carousel.min.js"></script>
     <script src="~/assets/js/script.js"></script>
+    <script src="~/assets/js/basket.js"></script>
 </body>
 
 </html>

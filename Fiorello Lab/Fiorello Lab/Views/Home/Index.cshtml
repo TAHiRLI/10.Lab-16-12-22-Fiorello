@@ -78,14 +78,14 @@
                              <div class="product-item text-center" data-id="@item.Categorie.Name.ToLower()">
                             <div class="img">
                                 <a href="">
-                                    <img src="~/assets/img/" class="img-fluid" alt="">
+                                    <img src="~/Uploads/Flowers/@item.FlowerImages.FirstOrDefault(x=> x.IsMain == true)?.ImgUrl" class="img-fluid" alt="">
                                 </a>
                             </div>
                             <div class="title mt-3">
                                 <h6>@item.Name</h6>
                             </div>
                             <div class="price">
-                                <span class="text-black-50">Add to cart</span>
+                                <a class="text-black-50 add-to-basket" asp-action="addtobasket" asp-controller="Flower" asp-route-flowerId="@item.Id"> Add to cart</a>
                                 <span class="text-black-50">$@item.Price</span>
                             </div>
                         </div>

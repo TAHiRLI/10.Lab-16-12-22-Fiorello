@@ -24,6 +24,7 @@ namespace Fiorello_Lab.Models
 
         [NotMapped]
         public List<int> FlowerImageIds { get; set; } = new List<int>();
+        public List<BasketItem> BasketItems { get; set; } = new List<BasketItem>();
 
     }
 }
